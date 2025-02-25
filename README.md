@@ -1,3 +1,9 @@
+<h1 align="center">
+  <a href="https://github.com/dgKim81">
+    <img src="https://readme-typing-svg.herokuapp.com/?lines=안녕하세요! 김동균 입니다.;저의 Git 저장소에 오신 것을 환영합니다!&center=true&size=30">
+  </a>
+</h1>
+
 [![Typing SVG](https://readme-typing-svg.demolab.com/?lines=First+line+of+text;Second+line+of+text)](https://git.io/typing-svg)
 
 # 👋 안녕하세요! 배우려는 개발자 동동입니다.
