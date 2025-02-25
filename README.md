@@ -4,12 +4,8 @@
   </a>
 </h1>
 
-### 🚀 **About Me**
-
 💡 **Full-Stack Developer** | 🌱 Learning **DevSecOps, MLOps**
 
-📖 **My Blog**: [dgkim81.github.io](https://dgkim81.github.io)  
-**Contact Me**: [bravecat@nate.com](mailto:bravecat@nate.com)
 ---
 
 ### ⚡ **Tech Stack**
@@ -35,5 +31,7 @@
 </p>
 
 ---
+blog: [dgkim81.github.io](https://dgkim81.github.io)  
+E-main: [bravecat@nate.com](mailto:bravecat@nate.com)
 
 
