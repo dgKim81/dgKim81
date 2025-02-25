@@ -1,8 +1,5 @@
-<h1 align="center">
-  <a href="https://github.com/dgKim81">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94!+%EB%8F%99%EB%8F%99+%EC%9E%85%EB%8B%88%EB%8B%A4.;%EC%A0%80%EC%9D%98+Git+%EC%A0%80%EC%9E%A5%EC%86%8C%EC%97%90+%EC%98%A4%EC%8B%A0+%EA%B2%83%EC%9D%84+%ED%99%98%EC%98%81%ED%95%A9%EB%8B%88%EB%8B%A4." alt="안녕하세요~! 동동 입니다. 저의 Git hub 저장소에 오신 것을 환영합니다." />
-  </a>
-</h1>
+
+# 안녕하세요~! 동동 입니다. 저의 Git hub 저장소에 오신 것을 환영합니다.
 
 💡 **Full-Stack Developer** | 🌱 Learning **DevSecOps, MLOps**
 
