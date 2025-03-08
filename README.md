@@ -34,4 +34,126 @@
 blog: [dgkim81.github.io](https://dgkim81.github.io)  
 E-main: [bravecat@nate.com](mailto:bravecat@nate.com)
 
+<script>
+const grid = document.querySelector(".js-calendar-graph-table");
 
+const trs = document.querySelectorAll(".js-calendar-graph-table tr");
+const colors = [
+    "rgb(173, 216, 230)",  // Light Blue
+    "rgb(150, 200, 220)",  // Soft Blue
+    "rgb(120, 170, 190)",  // Grayish Blue
+    "rgb(90, 140, 160)",   // Muted Blue-Gray
+    "rgb(60, 110, 130)"    // Dark Blue-Gray
+];
+const directions = "TBRL";
+const p2d = [];
+
+let preMove = "";
+const tail_length = 5;
+let currentItems = [];
+let currentPosition_x = 0;
+let currentPosition_y = 0;
+
+trs.forEach(tr => {
+    tds = tr.getElementsByTagName("td")
+    c_p2d = [];
+    for (let i = 0; i < tds.length;i++) {
+        if (tds.item(i).className == "ContributionCalendar-day") {
+            c_p2d.push(tds.item(i))
+            currentPosition_x = i;
+            currentPosition_y = p2d.length - 1;
+        } else {
+            c_p2d.push(undefined)
+        }
+    }
+    p2d.push(c_p2d);
+});
+
+function validDirections(x , y) {
+    let validDir = directions.replace(preMove, "");
+
+    if (y + 1 >= p2d.length || x >= p2d[y + 1].length || !p2d[y + 1][x]) {
+        validDir = validDir.replace("B", "");
+    } else if (currentItems.findIndex(fn => fn.tag == p2d[y + 1][x]) !== -1) {
+        validDir = validDir.replace("B", "");
+    }
+
+    if (y <= 0 || !p2d[y - 1][x]) {
+        validDir = validDir.replace("T", "");
+    } else if (currentItems.findIndex(fn => fn.tag == p2d[y - 1][x]) !== -1) {
+        validDir = validDir.replace("T", "");
+    }
+
+    if (x >= p2d[y].length || !p2d[y][x + 1]) {
+        validDir = validDir.replace("R", "");
+    } else if (currentItems.findIndex(fn => fn.tag == p2d[y][x + 1]) !== -1) {
+        validDir = validDir.replace("R", "");
+    }
+
+    if (x <= 0 || !p2d[y][x - 1]) {
+        validDir = validDir.replace("L", "");
+    } else if (currentItems.findIndex(fn => fn.tag == p2d[y][x - 1]) !== -1) {
+        validDir = validDir.replace("L", "");
+    }
+
+    return validDir;
+}
+
+function decisionDirect(validDir, x, y) {
+    const idx = Math.floor(Math.random() * validDir.length);
+    const dir = validDir[idx];
+
+    switch (dir) {
+        case "B": 
+            y = y + 1;
+            break;
+        case "T":
+            y = y - 1;
+            break;
+        case "L":
+            x = x - 1;
+            break;
+        case "R":
+            x = x + 1;
+            break;
+        default:
+            break;
+    }
+
+    return { x, y }
+}
+
+function updateGrid(x, y) {
+    const currentItem = p2d[currentPosition_y][currentPosition_x];
+    currentItems.push({
+        tag: currentItem,
+        backgroundColor: currentItem.style.backgroundColor
+    });
+
+    if (currentItems.length >= colors.length) {
+        removeItem = currentItems.shift();
+        removeItem.tag.style.backgroundColor = removeItem.backgroundColor;
+    }
+
+    for(let i = 0; i < currentItems.length; i++) {
+        currentItems[i].tag.style.backgroundColor = colors[i];
+
+    }
+
+    setTimeout(move, 300);
+}
+
+function move() {
+    let validDir = validDirections(currentPosition_x, currentPosition_y);
+    let position = decisionDirect(validDir, currentPosition_x, currentPosition_y);
+    currentPosition_x = position.x;
+    currentPosition_y = position.y;
+    updateGrid(currentPosition_x, currentPosition_y);
+}
+
+setTimeout(() => {
+    updateGrid(5,5);
+}, 3000);
+
+  
+</script>
